@@ -1,0 +1,23 @@
+.prayerTime {
+  padding: 0 20px;
+  text-align: center;
+  color: var(--color-font-primary);
+}
+
+.prayerName {
+  margin-bottom: 0;
+  font-size: 1.4em;
+  font-weight: normal;
+}
+
+.prayerTimeTime {
+  margin-bottom: 0;
+  font-size: 2.8em;
+  font-weight: 600;
+}
+
+.prayerRemainingTime {
+  font-style: italic;
+  font-size: 0.9em;
+  color: var(--color-font-secondary);
+}

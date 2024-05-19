@@ -1,0 +1,13 @@
+.location {
+  text-align: center;
+}
+
+.city {
+  font-size: 3em;
+  font-weight: 600;
+  margin: 10px 0;
+}
+
+.date {
+  color: var(--color-font-secondary);
+}

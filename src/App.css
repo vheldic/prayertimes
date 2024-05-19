@@ -1,0 +1,35 @@
+.background {
+  height: 100vh;
+}
+
+.App {
+  margin: 0 auto;
+  padding: 0 10px;
+  color: var(--color-font-primary);
+}
+
+@media (min-width: 576px) {
+  .App {
+    max-width: 540px;
+  }
+}
+@media (min-width: 768px) {
+  .App {
+    max-width: 720px;
+  }
+}
+@media (min-width: 992px) {
+  .App {
+    max-width: 960px;
+  }
+}
+@media (min-width: 1200px) {
+  .App {
+    max-width: 1140px;
+  }
+}
+@media (min-width: 1400px) {
+  .App {
+    max-width: 1320px;
+  }
+}
