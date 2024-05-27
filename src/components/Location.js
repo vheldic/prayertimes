@@ -1,13 +1,14 @@
 import "./Location.css";
 
-function Location() {
-  const location = "Wien";
-  const date = "Mo, 20.05.2024";
-
+function Location({location, date, hijri}) {
   return (
     <div className="location">
       <h1 className="city">{location}</h1>
-      <p className="date">{date}</p>
+      {
+        date !== undefined || hijri !== undefined 
+        ?<p className="date">{date + " / " + hijri}</p>
+        :<div/>
+      }
     </div>
   );
 }

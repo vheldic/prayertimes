@@ -5,9 +5,12 @@
 .city {
   font-size: 3em;
   font-weight: 600;
+  line-height: 1.2;
   margin: 10px 0;
 }
 
 .date {
+  font-style: italic;
+  font-size: 0.9em;
   color: var(--color-font-secondary);
 }
