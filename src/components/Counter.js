@@ -1,15 +1,24 @@
+import { useEffect, useState } from "react";
 import "./Counter.css";
 
 function Counter() {
-  const currentdate = new Date();
-  const duration =
-    currentdate.getHours() +
-    ":" +
-    currentdate.getMinutes() +
-    ":" +
-    currentdate.getSeconds();
+  const [counter, setCounter] = useState(new Date());
 
-  return <div className="counter">{duration}</div>;
+  useEffect(() => {
+    setInterval(() => {
+      setCounter((prev) => prev = new Date());
+    }, 1000);
+  }, []);
+
+  function formatTime() {
+    const hours = counter.getHours();
+    const minutes = counter.getMinutes();
+    const seconds = counter.getSeconds();
+
+    return `${hours}:${minutes}:${seconds}`;
+  }
+
+  return <div className="counter">{formatTime()}</div>;
 }
 
 export default Counter;
