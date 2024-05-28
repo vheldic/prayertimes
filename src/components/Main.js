@@ -7,6 +7,7 @@ import PrayerTime from "./PrayerTime.js";
 
 function Main() {
   const currentDay = getCurrentDay();
+  const [currentMinute, setCurrentMinute] = useState()
   const [city_id, setLocation] = useState(17);
   const [data, setData] = useState(null);
   
@@ -27,7 +28,7 @@ function Main() {
 
   return (
     <>
-      <Counter />
+      <Counter setCurrentMinute={setCurrentMinute}/>
       <Location 
         location={data?.city_name} 
         date={data?.date[0]} 
@@ -35,7 +36,12 @@ function Main() {
       />
       <div className="prayerTimes">
         {data?.times.map((value, index) => (
-          <PrayerTime key={index} name={data.prayerNames[index]} time={value}/>
+          <PrayerTime 
+            key={index} 
+            name={data.prayerNames[index]} 
+            time={value} 
+            currentMinute={currentMinute} 
+          />
         ))}
       </div>
     </>

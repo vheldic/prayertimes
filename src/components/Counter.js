@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./Counter.css";
 
-function Counter() {
+function Counter({ setCurrentMinute }) {
   const [counter, setCounter] = useState(new Date());
 
   useEffect(() => {
@@ -14,8 +14,13 @@ function Counter() {
     const hours = counter.getHours();
     const minutes = counter.getMinutes();
     const seconds = counter.getSeconds();
+    setCurrentMinute(hours * 60 + minutes);
 
-    return `${hours}:${minutes}:${seconds}`;
+    return `${padZero(hours)}:${padZero(minutes)}:${padZero(seconds)}`;
+
+    function padZero(number) {
+      return (number < 10 ? "0" : "") + number;
+    }
   }
 
   return <div className="counter">{formatTime()}</div>;
