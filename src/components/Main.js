@@ -5,17 +5,16 @@ import Counter from "./Counter.js";
 import Location from "./Location.js";
 import PrayerTime from "./PrayerTime.js";
 
-function Main() {
+function Main({ location, setShowLocations }) {
   const currentDay = getCurrentDay();
   const [currentMinute, setCurrentMinute] = useState()
-  const [city_id, setLocation] = useState(17);
   const [data, setData] = useState(null);
   
   useEffect(() => {
-    getPrayertimes(city_id, currentDay).then((res) => {
+    getPrayertimes(location, currentDay).then((res) => {
       setData(res)
     })
-  }, [city_id, currentDay]);
+  }, [location, currentDay]);
 
   function getCurrentDay() {
     const now = new Date();
@@ -33,6 +32,7 @@ function Main() {
         location={data?.city_name} 
         date={data?.date[0]} 
         hijri={data?.date[1]} 
+        setShowLocations={setShowLocations}
       />
       <div className="prayerTimes">
         {data?.times.map((value, index) => (

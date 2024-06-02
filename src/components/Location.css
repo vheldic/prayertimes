@@ -3,6 +3,13 @@
 }
 
 .city {
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  cursor: pointer;
+}
+
+.cityname {
   font-size: 3em;
   font-weight: 600;
   line-height: 1.2;

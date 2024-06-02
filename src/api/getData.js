@@ -14,6 +14,10 @@ export async function getPrayertimes(city_id, dayofyear) {
     }
 }
 
+export async function getLocations() {
+    return data.locations;
+}
+
 function formatDate(str) {
     const monthNum = str.slice(str.indexOf("-") + 1, str.lastIndexOf("-"))
     const monthStr = data.months[monthNum - 1]
