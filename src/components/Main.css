@@ -1,4 +1,11 @@
 .prayerTimes {
   display: flex;
   justify-content: space-around;
+  flex-direction: column;
+}
+
+@media (min-width: 992px) {
+  .prayerTimes {
+    flex-direction: row;
+  }
 }

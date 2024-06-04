@@ -9,7 +9,6 @@ function Locations({ showLocations, setShowLocations, setLocation }) {
     getLocations().then((res) => {
       setLocations(res);
     });
-    console.log(locations);
   }, [locations]);
 
   if (!showLocations) return null;
@@ -22,7 +21,6 @@ function Locations({ showLocations, setShowLocations, setLocation }) {
             <h1
               key={index}
               onClick={() => {
-                console.log("Location change -> ", locations[index]);
                 setLocation(index + 1);
                 setShowLocations(false);
               }}
