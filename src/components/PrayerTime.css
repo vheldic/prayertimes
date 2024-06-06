@@ -17,6 +17,10 @@
   font-weight: 600;
 }
 
+.prayerTimeTime-highlight {
+  color: #9d885b
+}
+
 .prayerRemainingTime {
   font-style: italic;
   font-size: 0.9em;

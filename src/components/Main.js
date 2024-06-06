@@ -9,12 +9,25 @@ function Main({ location, setShowLocations }) {
   const currentDay = getCurrentDay();
   const [currentMinute, setCurrentMinute] = useState()
   const [data, setData] = useState(null);
+  const [nextPrayerIndex, setNextPrayerIndex] = useState(null);
   
   useEffect(() => {
     getPrayertimes(location, currentDay).then((res) => {
       setData(res)
     })
   }, [location, currentDay]);
+
+  useEffect(() => {
+    for (let i = 0; i < data?.times.length; i++) {
+      const prayertimeMinutes = Number(data.times[i].split(":")[0])*60 + Number(data.times[i].split(":")[1]);
+      
+      if (prayertimeMinutes >= currentMinute) {
+        setNextPrayerIndex(i);
+        return
+      }
+    }
+    setNextPrayerIndex(null);
+  }, [currentMinute, data?.times, setNextPrayerIndex]);
 
   function getCurrentDay() {
     const now = new Date();
@@ -41,6 +54,7 @@ function Main({ location, setShowLocations }) {
             name={data.prayerNames[index]} 
             time={value} 
             currentMinute={currentMinute} 
+            highlight={nextPrayerIndex === index ? true : false}
           />
         ))}
       </div>

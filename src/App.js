@@ -11,7 +11,6 @@ function App() {
   const [location, setLocation] = useState(getLocation());
 
   function getLocation() {
-    console.log("GET LOCATION", cookies);
     if (!cookies.get("location")) cookies.set("location", 17);
     return cookies.get("location");
   }

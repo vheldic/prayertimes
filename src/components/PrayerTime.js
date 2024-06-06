@@ -1,6 +1,6 @@
 import "./PrayerTime.css";
 
-function PrayerTime({ name, time, currentMinute }) {
+function PrayerTime({ name, time, currentMinute, highlight }) {
   function remainingTime() {
     const prayertimeMinutes =
       Number(time.split(":")[0] * 60) + Number(time.split(":")[1]);
@@ -31,7 +31,7 @@ function PrayerTime({ name, time, currentMinute }) {
   return (
     <div className="prayerTime">
       <h2 className="prayerName">{name}</h2>
-      <p className="prayerTimeTime">{time}</p>
+      <p className={`prayerTimeTime ${highlight ? 'prayerTimeTime-highlight' : ''}`}>{time}</p>
       <p className="prayerRemainingTime">{remainingTime()}</p>
     </div>
   );
