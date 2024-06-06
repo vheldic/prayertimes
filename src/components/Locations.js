@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
+import Cookies from "universal-cookie";
 import "./Locations.css";
 import { getLocations } from "../api/getData.js";
 
 function Locations({ showLocations, setShowLocations, setLocation }) {
+  const cookies = new Cookies();
   const [locations, setLocations] = useState([]);
 
   useEffect(() => {
@@ -22,6 +24,7 @@ function Locations({ showLocations, setShowLocations, setLocation }) {
               key={index}
               onClick={() => {
                 setLocation(index + 1);
+                cookies.set("location", index + 1)
                 setShowLocations(false);
               }}
             >
